@@ -47,7 +47,7 @@ export default function Home() {
             <AnimatedSection delay={0.3}>
               <div className="flex items-center justify-center">
                 <AnimatedImage
-                  src="/placeholder.svg?height=500&width=500"
+                  src="/homeimage.png?height=500&width=500"
                   width={500}
                   height={500}
                   alt="Smart Building Automation"
@@ -110,7 +110,7 @@ export default function Home() {
             <AnimatedSection delay={0.4}>
               <div className="flex items-center justify-center">
                 <AnimatedImage
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/fancoilcontrol.png?height=400&width=400"
                   width={400}
                   height={400}
                   alt="Building Management System"

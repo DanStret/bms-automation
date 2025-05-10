@@ -147,7 +147,7 @@ export default function SolucionesPage() {
             <AnimatedSection delay={0.2}>
               <div className="flex items-center justify-center">
                 <AnimatedImage
-                  src="/placeholder.svg?height=400&width=400"
+                  src="/pensando.png?height=400&width=400"
                   width={400}
                   height={400}
                   alt="Soluciones de automatización"
