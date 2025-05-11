@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
+import { usePathname } from "next/navigation" // Importa usePathname
 import { Menu, X } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -45,9 +46,23 @@ const menuItems = [
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [activeSubmenu, setActiveSubmenu] = useState<string | null>(null)
+  const pathname = usePathname() // Obtiene la ruta actual
 
   const toggleSubmenu = (name: string) => {
     setActiveSubmenu(activeSubmenu === name ? null : name)
+  }
+
+  // Función para verificar si un enlace está activo
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === href
+    }
+    return pathname.startsWith(href)
+  }
+
+  // Función para verificar si un elemento del submenú está activo
+  const isSubItemActive = (href: string) => {
+    return pathname === href
   }
 
   return (
@@ -60,7 +75,7 @@ export default function Header() {
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.5 }}
-              className="hidden font-bold sm:inline-block"
+              className="font-bold sm:inline-block"
             >
               SMART AUTOMATION
             </motion.span>
@@ -77,7 +92,13 @@ export default function Header() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Link href={item.href} className="text-sm font-medium transition-colors hover:text-primary">
+              <Link 
+                href={item.href} 
+                className={cn(
+                  "text-sm font-medium transition-colors hover:text-primary",
+                  isActive(item.href) && "text-primary font-semibold" // Aplica estilo si está activo
+                )}
+              >
                 {item.name}
               </Link>
 
@@ -94,7 +115,10 @@ export default function Header() {
                       <motion.div key={subItem.name} whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                         <Link
                           href={subItem.href}
-                          className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900"
+                          className={cn(
+                            "block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900",
+                            isSubItemActive(subItem.href) && "bg-gray-100 text-gray-900 font-medium" // Estilo para submenú activo
+                          )}
                         >
                           {subItem.name}
                         </Link>
@@ -129,7 +153,10 @@ export default function Header() {
                   <>
                     <button
                       onClick={() => toggleSubmenu(item.name)}
-                      className="flex w-full items-center justify-between font-medium transition-colors hover:text-primary"
+                      className={cn(
+                        "flex w-full items-center justify-between font-medium transition-colors hover:text-primary",
+                        isActive(item.href) && "text-primary font-semibold" // Estilo para menú móvil activo
+                      )}
                     >
                       {item.name}
                       <span className="ml-1">{activeSubmenu === item.name ? "−" : "+"}</span>
@@ -142,7 +169,10 @@ export default function Header() {
                             key={subItem.name}
                             href={subItem.href}
                             onClick={() => setMobileMenuOpen(false)}
-                            className="text-sm transition-colors hover:text-primary"
+                            className={cn(
+                              "text-sm transition-colors hover:text-primary",
+                              isSubItemActive(subItem.href) && "text-primary font-medium" // Estilo para submenú móvil activo
+                            )}
                           >
                             {subItem.name}
                           </Link>
@@ -154,7 +184,10 @@ export default function Header() {
                   <Link
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className="font-medium transition-colors hover:text-primary"
+                    className={cn(
+                      "font-medium transition-colors hover:text-primary",
+                      isActive(item.href) && "text-primary font-semibold" // Estilo para opción móvil activa
+                    )}
                   >
                     {item.name}
                   </Link>

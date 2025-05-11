@@ -7,8 +7,7 @@ import { notFound } from "next/navigation"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { ArrowRight, CheckCircle } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
+import { ArrowRight, CheckCircle, Thermometer, Zap, BarChart3 } from "lucide-react"
 import equipos from "@/data/equipos"
 
 interface EquipoPageProps {
@@ -65,60 +64,33 @@ export default function EquipoClientPage({ params }: EquipoPageProps) {
       {/* Gallery Section */}
       <section className="w-full py-12 md:py-24 lg:py-32">
         <div className="container px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-          >
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Galería de Imágenes</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                 Explora nuestros sistemas {equipo.titulo} desde diferentes ángulos.
               </p>
             </div>
-          </motion.div>
+          </div>
           <div className="mt-8 grid gap-8 lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5 }}
-              className="flex items-center justify-center"
-            >
+            <div className="flex items-center justify-center">
               <div className="overflow-hidden rounded-lg border">
-                <AnimatePresence mode="wait">
-                  <motion.div
-                    key={selectedImage.src}
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    transition={{ duration: 0.3 }}
-                  >
-                    <Image
-                      src={selectedImage.src || "/placeholder.svg"}
-                      width={selectedImage.width}
-                      height={selectedImage.height}
-                      alt={selectedImage.alt}
-                      className="h-full w-full object-cover transition-all hover:scale-105"
-                    />
-                  </motion.div>
-                </AnimatePresence>
+                <Image
+                  src={selectedImage.src || "/placeholder.svg"}
+                  width={selectedImage.width}
+                  height={selectedImage.height}
+                  alt={selectedImage.alt}
+                  className="h-full w-full object-cover transition-all hover:scale-105"
+                />
               </div>
-            </motion.div>
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              className="flex flex-col justify-center space-y-4"
-            >
+            </div>
+            <div className="flex flex-col justify-center space-y-4">
               <h3 className="text-2xl font-bold">{selectedImage.alt}</h3>
               <p className="text-muted-foreground">{equipo.tabs.descripcion[0]}</p>
               <div className="grid grid-cols-5 gap-2">
-                {equipo.galeria.map((image, index) => (
-                  <motion.button
-                    key={index}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                {equipo.galeria.map((image) => (
+                  <button
+                    key={image.src}
                     className={`overflow-hidden rounded-md border ${
                       selectedImage.src === image.src ? "ring-2 ring-cyan-500" : ""
                     }`}
@@ -131,10 +103,10 @@ export default function EquipoClientPage({ params }: EquipoPageProps) {
                       alt={image.alt}
                       className="h-full w-full object-cover"
                     />
-                  </motion.button>
+                  </button>
                 ))}
               </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -142,25 +114,15 @@ export default function EquipoClientPage({ params }: EquipoPageProps) {
       {/* Overview Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-          >
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Descripción General</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                 Conoce más sobre nuestros sistemas {equipo.titulo} y sus características.
               </p>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.2 }}
-            className="mt-8"
-          >
+          </div>
+          <div className="mt-8">
             <Tabs defaultValue="descripcion" className="w-full">
               <TabsList className="grid w-full grid-cols-4">
                 <TabsTrigger value="descripcion">Descripción</TabsTrigger>
@@ -168,181 +130,123 @@ export default function EquipoClientPage({ params }: EquipoPageProps) {
                 <TabsTrigger value="aplicaciones">Aplicaciones</TabsTrigger>
                 <TabsTrigger value="especificaciones">Especificaciones</TabsTrigger>
               </TabsList>
-              <AnimatePresence mode="wait">
-                <TabsContent value="descripcion" className="p-4 border rounded-md mt-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="space-y-4"
-                  >
-                    <h3 className="text-xl font-bold">¿Qué es un {equipo.titulo}?</h3>
-                    {equipo.tabs.descripcion.map((parrafo, index) => (
-                      <p key={index}>{parrafo}</p>
-                    ))}
-                  </motion.div>
-                </TabsContent>
-                <TabsContent value="caracteristicas" className="p-4 border rounded-md mt-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid gap-6 sm:grid-cols-2"
-                  >
-                    <div className="flex flex-col gap-4">
-                      {equipo.tabs.caracteristicas
-                        .slice(0, Math.ceil(equipo.tabs.caracteristicas.length / 2))
-                        .map((caracteristica, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.3, delay: index * 0.1 }}
-                            className="flex items-start gap-4"
-                          >
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-100">
-                              <CheckCircle className="h-4 w-4 text-cyan-600" />
-                            </div>
-                            <div>
-                              <h3 className="font-bold">{caracteristica.titulo}</h3>
-                              <p className="text-sm text-muted-foreground">{caracteristica.descripcion}</p>
-                            </div>
-                          </motion.div>
-                        ))}
+              <TabsContent value="descripcion" className="p-4 border rounded-md mt-4">
+                <div className="space-y-4">
+                  <h3 className="text-xl font-bold">¿Qué es un {equipo.titulo}?</h3>
+                  {equipo.tabs.descripcion.map((parrafo,index) => (
+                    <p key={index}>{parrafo}</p>
+                  ))}
+                </div>
+              </TabsContent>
+              <TabsContent value="caracteristicas" className="p-4 border rounded-md mt-4">
+                <div className="grid gap-6 sm:grid-cols-2">
+                  {equipo.tabs.caracteristicas.map((caracteristica) => (
+                    <div key={caracteristica.titulo} className="flex items-start gap-4">
+                      <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-100">
+                        <CheckCircle className="h-4 w-4 text-cyan-600" />
+                      </div>
+                      <div>
+                        <h3 className="font-bold">{caracteristica.titulo}</h3>
+                        <p className="text-sm text-muted-foreground">{caracteristica.descripcion}</p>
+                      </div>
                     </div>
-                    <div className="flex flex-col gap-4">
-                      {equipo.tabs.caracteristicas
-                        .slice(Math.ceil(equipo.tabs.caracteristicas.length / 2))
-                        .map((caracteristica, index) => (
-                          <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 10 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            transition={{
-                              duration: 0.3,
-                              delay: (index + Math.ceil(equipo.tabs.caracteristicas.length / 2)) * 0.1,
-                            }}
-                            className="flex items-start gap-4"
-                          >
-                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-cyan-100">
-                              <CheckCircle className="h-4 w-4 text-cyan-600" />
-                            </div>
-                            <div>
-                              <h3 className="font-bold">{caracteristica.titulo}</h3>
-                              <p className="text-sm text-muted-foreground">{caracteristica.descripcion}</p>
-                            </div>
-                          </motion.div>
+                  ))}
+                </div>
+              </TabsContent>
+              <TabsContent value="aplicaciones" className="p-4 border rounded-md mt-4">
+                <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+                  {equipo.tabs.aplicaciones.map((aplicacion) => (
+                    <Card key={aplicacion.titulo}>
+                      <CardContent className="p-6">
+                        <div className="flex flex-col items-center gap-2 text-center">
+                          <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-100">
+                            <svg
+                              xmlns="http://www.w3.org/2000/svg"
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              stroke="currentColor"
+                              strokeWidth="2"
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              className="h-6 w-6 text-cyan-600"
+                            >
+                              <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
+                              <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"></path>
+                              <path d="M12 12h.01"></path>
+                            </svg>
+                          </div>
+                          <h3 className="text-lg font-bold">{aplicacion.titulo}</h3>
+                          <p className="text-sm text-muted-foreground">{aplicacion.descripcion}</p>
+                        </div>
+                      </CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </TabsContent>
+              <TabsContent value="especificaciones" className="p-4 border rounded-md mt-4">
+                <div className="space-y-6">
+                  {equipo.tabs.especificaciones.map((especificacion) => (
+                    <div key={especificacion.titulo}>
+                      <h3 className="text-xl font-bold mb-4">{especificacion.titulo}</h3>
+                      <div className="grid gap-4 sm:grid-cols-2">
+                        {especificacion.items.map((item) => (
+                          <div key={item.subtitulo} className="rounded-lg border p-4">
+                            <h4 className="font-bold flex items-center">
+                              <BarChart3 className="h-5 w-5 mr-2 text-cyan-600" />
+                              {item.subtitulo}
+                            </h4>
+                            <ul className="mt-2 space-y-1 text-sm">
+                              {item.contenido.map((linea) => (
+                                <li key={linea}>• {linea}</li>
+                              ))}
+                            </ul>
+                          </div>
                         ))}
+                      </div>
                     </div>
-                  </motion.div>
-                </TabsContent>
-                <TabsContent value="aplicaciones" className="p-4 border rounded-md mt-4">
-                  <motion.div
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    exit={{ opacity: 0, y: -10 }}
-                    transition={{ duration: 0.3 }}
-                    className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3"
-                  >
-                    {equipo.tabs.aplicaciones.map((aplicacion, index) => (
-                      <motion.div
-                        key={index}
-                        initial={{ opacity: 0, y: 10 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.3, delay: index * 0.1 }}
-                      >
-                        <Card>
-                          <CardContent className="p-6">
-                            <div className="flex flex-col items-center gap-2 text-center">
-                              <div className="flex h-12 w-12 items-center justify-center rounded-full bg-cyan-100">
-                                <svg
-                                  xmlns="http://www.w3.org/2000/svg"
-                                  width="24"
-                                  height="24"
-                                  viewBox="0 0 24 24"
-                                  fill="none"
-                                  stroke="currentColor"
-                                  strokeWidth="2"
-                                  strokeLinecap="round"
-                                  strokeLinejoin="round"
-                                  className="h-6 w-6 text-cyan-600"
-                                >
-                                  <path d="M3 9h18v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V9Z"></path>
-                                  <path d="M3 9V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v4"></path>
-                                  <path d="M12 12h.01"></path>
-                                </svg>
-                              </div>
-                              <h3 className="text-lg font-bold">{aplicacion.titulo}</h3>
-                              <p className="text-sm text-muted-foreground">{aplicacion.descripcion}</p>
-                            </div>
-                          </CardContent>
-                        </Card>
-                      </motion.div>
-                    ))}
-                  </motion.div>
-                </TabsContent>
-              </AnimatePresence>
+                  ))}
+                </div>
+              </TabsContent>
             </Tabs>
-          </motion.div>
+          </div>
         </div>
       </section>
 
       {/* Models Section */}
       <section className="w-full py-12 md:py-24 lg:py-32 bg-gray-50">
         <div className="container px-4 md:px-6">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="flex flex-col items-center justify-center space-y-4 text-center"
-          >
+          <div className="flex flex-col items-center justify-center space-y-4 text-center">
             <div className="space-y-2">
               <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">Modelos Disponibles</h2>
               <p className="max-w-[900px] text-muted-foreground md:text-xl/relaxed">
                 Ofrecemos una amplia gama de modelos para adaptarse a sus necesidades específicas.
               </p>
             </div>
-          </motion.div>
+          </div>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {equipo.modelos.map((modelo, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <Card className="overflow-hidden h-full">
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    transition={{ duration: 0.3 }}
-                    className="aspect-video w-full overflow-hidden"
-                  >
-                    <Image
-                      src={modelo.imagen || "/placeholder.svg"}
-                      width={300}
-                      height={200}
-                      alt={modelo.nombre}
-                      className="h-full w-full object-cover"
-                    />
-                  </motion.div>
-                  <CardContent className="p-4">
-                    <h3 className="text-lg font-bold">{modelo.nombre}</h3>
-                    <p className="text-sm text-muted-foreground">{modelo.descripcion}</p>
-                    <p className="mt-2 text-sm font-medium">Capacidad: {modelo.capacidad}</p>
-                    <motion.div whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
-                      <Link
-                        href="/contacto"
-                        className="mt-4 inline-flex items-center text-sm font-medium text-cyan-600"
-                      >
-                        Solicitar información
-                        <ArrowRight className="ml-1 h-4 w-4" />
-                      </Link>
-                    </motion.div>
-                  </CardContent>
-                </Card>
-              </motion.div>
+            {equipo.modelos.map((modelo) => (
+              <Card key={modelo.nombre} className="overflow-hidden">
+                <div className="aspect-video w-full overflow-hidden">
+                  <Image
+                    src={modelo.imagen || "/placeholder.svg"}
+                    width={300}
+                    height={200}
+                    alt={modelo.nombre}
+                    className="h-full w-full object-cover transition-transform hover:scale-105"
+                  />
+                </div>
+                <CardContent className="p-4">
+                  <h3 className="text-lg font-bold">{modelo.nombre}</h3>
+                  <p className="text-sm text-muted-foreground">{modelo.descripcion}</p>
+                  <p className="mt-2 text-sm font-medium">Capacidad: {modelo.capacidad}</p>
+                  <Link href="/contacto" className="mt-4 inline-flex items-center text-sm font-medium text-cyan-600">
+                    Solicitar información
+                    <ArrowRight className="ml-1 h-4 w-4" />
+                  </Link>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
@@ -356,8 +260,7 @@ export default function EquipoClientPage({ params }: EquipoPageProps) {
               ¿Necesitas un sistema {equipo.titulo} para tu proyecto?
             </h2>
             <p className="text-white md:text-xl/relaxed">
-              Contáctanos hoy mismo para una consulta personalizada y descubre cómo nuestros sistemas {equipo.titulo}{" "}
-              pueden mejorar la eficiencia de tu edificio o proceso industrial.
+              Contáctanos hoy mismo para una consulta personalizada y descubre cómo nuestros sistemas {equipo.titulo} pueden mejorar la eficiencia de tu edificio o proceso industrial.
             </p>
             <div className="flex flex-col gap-2 min-[400px]:flex-row justify-center pt-4">
               <Link href="/contacto">

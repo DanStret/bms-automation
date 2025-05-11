@@ -14,13 +14,16 @@ export function generateStaticParams() {
   }))
 }
 
-export default function EquipoPage({ params }: EquipoPageProps) {
-  const { slug } = params
+export default async function EquipoPage({ params }: EquipoPageProps) {
+  // En Next.js 15, los params son ahora objetos Promise
+  const resolvedParams = await params
+  const { slug } = resolvedParams
+
   const equipo = equipos[slug]
 
   if (!equipo) {
     notFound()
   }
 
-  return <EquipoClientPage params={params} />
+  return <EquipoClientPage params={resolvedParams} />
 }
