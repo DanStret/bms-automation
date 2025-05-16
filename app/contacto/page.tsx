@@ -133,7 +133,7 @@ export default function ContactoPage() {
                         id="email"
                         name="email"
                         type="email"
-                        placeholder="tu@email.com"
+                        placeholder="tu@gmail.com"
                         required
                         value={formData.email}
                         onChange={handleChange}

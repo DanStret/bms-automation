@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
@@ -10,6 +9,21 @@ import { AnimatedCard } from "@/components/animated-card"
 import { AnimatedCounter } from "@/components/animated-counter"
 import { AnimatedList } from "@/components/animated-list"
 import { AnimatedImage } from "@/components/animated-image"
+import { AnimatedLogo } from "@/components/animated-logo"
+import ClientLogos from "@/components/client-logos"
+
+
+const customLogos = [
+  { name: "AirPeru", src: "/LogosClient/LogoclienteColdAirPeru.png", width: 120, height: 60 },
+  { name: "ColdImport", src: "/LogosClient/LogoclienteColdImport.png", width: 120, height: 65 },
+  { name: "Daikin", src: "/LogosClient/LogoclienteDaikin.png", width: 120, height: 55 },
+  { name: "Diar", src: "/LogosClient/LogoclienteDiar.png", width: 125, height: 62 },
+  { name: "Midea", src: "/LogosClient/LogoclienteMidea.png", width: 125, height: 58 },
+  { name: "RefriPeru", src: "/LogosClient/LogoclienteRefriPeru.png", width: 122, height: 61 },
+  { name: "SmartAutomation", src: "/LogosClient/LogoclienteSmartAutomation.png", width: 122, height: 61 },
+  { name: "Trane", src: "/LogosClient/LogoclienteTrane.png", width: 122, height: 61 },
+  { name: "York", src: "/LogosClient/LogoclienteYork.png", width: 122, height: 61 },
+];
 
 export default function Home() {
   return (
@@ -270,20 +284,8 @@ export default function Home() {
                 Empresas que confían en nuestras soluciones de automatización.
               </p>
             </div>
-          </div>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-center mt-8">
-            {[...Array(6)].map((_, i) => (
-              <div key={i} className="flex items-center justify-center">
-                <Image
-                  src="/placeholder-logo.svg"
-                  width={120}
-                  height={60}
-                  alt={`Cliente ${i + 1}`}
-                  className="opacity-70 hover:opacity-100 transition-opacity"
-                />
-              </div>
-            ))}
-          </div>
+          </div>     
+                <ClientLogos logos={customLogos} />
         </div>
       </section>
 

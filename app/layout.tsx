@@ -9,9 +9,13 @@ import { ThemeProvider } from "@/components/theme-provider"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata: Metadata = {
-  title: "SMART AUTOMATION - Soluciones de Automatización Inteligente",
+  title: "SMART AUTOMATION",
   description:
     "Especialistas en sistemas de automatización, HVAC, sistemas contra incendios y soluciones BMS para edificios inteligentes.",
+    icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  },
 }
 
 export default function RootLayout({
