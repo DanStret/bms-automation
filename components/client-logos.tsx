@@ -37,13 +37,13 @@ export default function ClientLogos({ logos }: ClientLogosProps) {
       <Swiper
         modules={[Autoplay, FreeMode]}
         spaceBetween={32}
-        slidesPerView={4}
+        slidesPerView={2}
         loop={true}
         freeMode={true}
         speed={4000}
         autoplay={{ delay: 20, disableOnInteraction: false, pauseOnMouseEnter: false }}
         allowTouchMove={false}
-        className="mt-8 py-4 h-[125px] w-full flex items-center justify-center"
+        className="mt-8 py-4 h-[80px] sm:h-[125px] w-full flex items-center justify-center"
         centeredSlides={true}
         breakpoints={{
           640: { slidesPerView: 3, centeredSlides: true },
@@ -57,7 +57,7 @@ export default function ClientLogos({ logos }: ClientLogosProps) {
               width={logo.width}
               height={logo.height}
               alt={`Cliente ${logo.name}`}
-              className="opacity-100 hover:opacity-100 transition-opacity mx-auto h-full"
+              className="opacity-100 hover:opacity-100 transition-opacity mx-auto"
             />
           </SwiperSlide>
         ))}
