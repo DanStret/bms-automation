@@ -275,7 +275,7 @@ export default function SolucionPage({ params }: SolucionPageProps) {
                 </Button>
               </Link>
               <Link href="/soluciones">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/20">
                   Explorar otras soluciones
                 </Button>
               </Link>

@@ -1,7 +1,7 @@
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { ArrowRight, Thermometer, Fan, Cpu, Navigation, Smartphone } from "lucide-react"
+import { ArrowRight, Thermometer, Fan, Cpu, Settings } from "lucide-react"
 import { AnimatedSection } from "@/components/animated-section"
 import { AnimatedCard } from "@/components/animated-card"
 import { AnimatedList } from "@/components/animated-list"
@@ -46,17 +46,10 @@ const equipments = [
     image: "/placeholder.svg?height=200&width=300",
   },
   {
-    title: "GPS Personas",
-    description: "Sistemas de localización y seguimiento para garantizar la seguridad de personas en tiempo real.",
-    icon: Navigation,
+    title: "Accesorios",
+    description: "Accesorios para todo tipo de sistemas.",
+    icon: Settings,
     href: "/equipos/gps-personas",
-    image: "/placeholder.svg?height=200&width=300",
-  },
-  {
-    title: "GPS Mascotas",
-    description: "Dispositivos de seguimiento diseñados específicamente para monitorear la ubicación de mascotas.",
-    icon: Smartphone,
-    href: "/equipos/gps-mascotas",
     image: "/placeholder.svg?height=200&width=300",
   },
 ]

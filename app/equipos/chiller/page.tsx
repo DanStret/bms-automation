@@ -650,7 +650,7 @@ export default function ChillerPage() {
                 </Button>
               </Link>
               <Link href="/equipos">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/20">
+                <Button size="lg" variant="outline" className="border-white hover:bg-white/20">
                   Explorar otros equipos
                 </Button>
               </Link>

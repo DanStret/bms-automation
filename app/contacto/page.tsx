@@ -79,8 +79,8 @@ export default function ContactoPage() {
                   <Mail className="h-6 w-6 text-cyan-500" />
                   <div>
                     <h3 className="font-bold">Email</h3>
-                    <p className="text-sm text-muted-foreground">trysperu7@gmail.com</p>
-                    <p className="text-sm text-muted-foreground">gpsventastrys@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">smartperu777@gmail.com</p>
+                    <p className="text-sm text-muted-foreground">smartventas777@gmail.com</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -94,8 +94,9 @@ export default function ContactoPage() {
                   <Phone className="h-6 w-6 text-cyan-500" />
                   <div>
                     <h3 className="font-bold">Redes Sociales</h3>
-                    <p className="text-sm text-muted-foreground">Facebook: TRYS PERU</p>
-                    <p className="text-sm text-muted-foreground">YouTube: Canal Oficial</p>
+                    <p className="text-sm text-muted-foreground">Facebook:  Smart Automation Peru</p>
+                    <p className="text-sm text-muted-foreground">YouTube: smartautomationsac</p>
+                    <p className="text-sm text-muted-foreground">Whatsapp: +51 932736873</p>
                   </div>
                 </div>
               </div>

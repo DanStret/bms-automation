@@ -1,6 +1,6 @@
 import Link from "next/link"
 import Image from "next/image"
-import { Facebook, Mail, Youtube } from "lucide-react"
+import { Facebook, Mail, Youtube, MessageCircleMore } from "lucide-react"
 
 export default function Footer() {
   return (
@@ -83,26 +83,32 @@ export default function Footer() {
           <ul className="grid gap-3 text-sm">
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <a href="mailto:trysperu7@gmail.com" className="text-muted-foreground hover:text-foreground">
-                trysperu7@gmail.com
+              <a href="mailto:smartventas777@gmail.com" className="text-muted-foreground hover:text-foreground">
+                smartventas777@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Mail className="h-4 w-4" />
-              <a href="mailto:gpsventastrys@gmail.com" className="text-muted-foreground hover:text-foreground">
-                gpsventastrys@gmail.com
+              <a href="mailto:smartperu777@gmail.com" className="text-muted-foreground hover:text-foreground">
+                smartperu777@gmail.com
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Youtube className="h-4 w-4" />
-              <a href="https://youtube.com" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.youtube.com/@smartautomationsac" className="text-muted-foreground hover:text-foreground">
                 Canal de YouTube
               </a>
             </li>
             <li className="flex items-center gap-2">
               <Facebook className="h-4 w-4" />
-              <a href="https://facebook.com" className="text-muted-foreground hover:text-foreground">
+              <a href="https://www.facebook.com/profile.php?id=61563962190830" className="text-muted-foreground hover:text-foreground">
                 TRYS PERU
+              </a>
+            </li>
+            <li className="flex items-center gap-2">
+              <MessageCircleMore className="h-4 w-4" />
+              <a href="https://www.facebook.com/profile.php?id=61563962190830" className="text-muted-foreground hover:text-foreground">
+                +51 932736873
               </a>
             </li>
             <li className="flex items-center gap-2">

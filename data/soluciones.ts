@@ -50,8 +50,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Un Sistema de Presurización de Escaleras es una solución de seguridad contra incendios diseñada para mantener las escaleras y rutas de evacuación libres de humo durante un incendio. El sistema funciona creando una presión positiva en las cajas de escaleras, evitando que el humo ingrese a estos espacios críticos y permitiendo que los ocupantes del edificio puedan evacuar de manera segura, incluso cuando otras áreas están comprometidas por el humo y el fuego.",
     icon: Building2,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/presurizacionInico.png",
+    imagenSecundaria: "/soluciones/SmartPresurizacion600x600.png",
     beneficios: [
       {
         titulo: "Mayor Seguridad para los Ocupantes",
@@ -131,8 +131,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Un Sistema de Extracción de Monóxido y CO2 es una solución diseñada para detectar y eliminar gases tóxicos en espacios cerrados como estacionamientos subterráneos, túneles y áreas industriales. Estos sistemas utilizan sensores avanzados para monitorear constantemente los niveles de monóxido de carbono (CO) y dióxido de carbono (CO2), activando automáticamente los extractores cuando los niveles superan los límites seguros, garantizando así un ambiente saludable para las personas.",
     icon: Fan,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartExtraccion600x600.png",
+    imagenSecundaria: "/soluciones/monoxidoyco2.png",
     beneficios: [
       {
         titulo: "Protección de la Salud",
@@ -192,8 +192,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestros sistemas de aire acondicionado ofrecen soluciones completas de climatización para todo tipo de edificaciones, desde pequeñas oficinas hasta grandes complejos comerciales e industriales. Utilizamos tecnologías avanzadas como Chiller, VRF, UMAs y Rooftop, adaptadas a las necesidades específicas de cada proyecto para garantizar el máximo confort, eficiencia energética y calidad del aire interior.",
     icon: Thermometer,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartAireAcondicionadohvac600x600.png",
+    imagenSecundaria: "/soluciones/aireacondicionado.png",
     beneficios: [
       {
         titulo: "Confort Óptimo",
@@ -255,8 +255,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestros sistemas contra incendios proporcionan protección integral mediante la detección temprana y la respuesta rápida ante situaciones de emergencia. Combinamos tecnologías avanzadas de detección, alarma y extinción para crear soluciones personalizadas que cumplen con las normativas más exigentes, garantizando la seguridad de las personas y la protección de los bienes en todo tipo de edificaciones.",
     icon: Flame,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartContraincendio600x600.png?height=400&width=400",
+    imagenSecundaria: "/soluciones/contraincendio.png",
     beneficios: [
       {
         titulo: "Detección Temprana",
@@ -333,7 +333,7 @@ const soluciones: Record<string, Solucion> = {
         ],
       },
     ],
-    proyectosDestacados: true,
+    proyectosDestacados: false,
   },
   "inyeccion-aire": {
     id: "inyeccion-aire",
@@ -343,8 +343,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestros sistemas de inyección y renovación de aire fresco están diseñados para mantener una óptima calidad del aire interior, eliminando contaminantes, reduciendo la concentración de CO2 y proporcionando un ambiente saludable y confortable. Mediante la introducción controlada de aire exterior filtrado y la extracción del aire viciado, estos sistemas garantizan una ventilación adecuada en todo tipo de edificaciones, desde oficinas y centros comerciales hasta hospitales y centros educativos.",
     icon: RefreshCw,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartSistemaInyecciondeAire600x600.png",
+    imagenSecundaria: "/soluciones/inyecciondeairefresco.png",
     beneficios: [
       {
         titulo: "Mejor Calidad del Aire",
@@ -404,8 +404,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestros sistemas de bombeo y presión constante de agua están diseñados para garantizar un suministro confiable y eficiente en todo tipo de edificaciones. Mediante el uso de bombas de velocidad variable, tanques hidroneumáticos y controles avanzados, estos sistemas mantienen la presión de agua óptima en todos los puntos de consumo, independientemente de las variaciones en la demanda o el suministro principal, asegurando el confort de los usuarios y la eficiencia operativa de las instalaciones.",
     icon: Droplets,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartPresionConstante600x600.png",
+    imagenSecundaria: "/soluciones/bombeoypresion.png",
     beneficios: [
       {
         titulo: "Presión Constante",
@@ -493,8 +493,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestro servicio de reparación de tarjetas electrónicas ofrece soluciones rápidas y efectivas para restaurar el funcionamiento de equipos industriales y de automatización. Contamos con técnicos altamente capacitados y laboratorios equipados con tecnología de punta para diagnosticar y reparar todo tipo de tarjetas electrónicas, desde controladores de equipos HVAC hasta sistemas de control industrial, prolongando la vida útil de los equipos y evitando costosos reemplazos.",
     icon: CircuitBoard,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/tarjetaselectronicas.png",
+    imagenSecundaria: "/soluciones/SmartReparaciondeTarjetasElectronicashvac600x600.png",
     beneficios: [
       {
         titulo: "Ahorro de Costos",
@@ -558,8 +558,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestros sistemas de transferencia automática proporcionan una solución confiable para garantizar la continuidad del suministro eléctrico en instalaciones críticas. Estos sistemas monitorean constantemente la red eléctrica principal y, en caso de fallo, conmutan automáticamente a fuentes alternativas como generadores o UPS, minimizando las interrupciones y protegiendo equipos sensibles. Diseñados con componentes de alta calidad y controles avanzados, nuestros sistemas de transferencia automática son esenciales para hospitales, centros de datos, industrias y cualquier instalación donde la continuidad eléctrica sea crucial.",
     icon: Zap,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartSistemaTransferenciaElectrica600x600.png",
+    imagenSecundaria: "/soluciones/transferenciaautomatica.png",
     beneficios: [
       {
         titulo: "Continuidad Operativa",
@@ -645,8 +645,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Nuestras soluciones de calidad de energía están diseñadas para identificar, mitigar y prevenir problemas en el suministro eléctrico que pueden afectar el rendimiento y la vida útil de equipos sensibles. Mediante el análisis detallado de la red eléctrica y la implementación de tecnologías como filtros activos, bancos de capacitores y UPS, mejoramos la estabilidad del voltaje, corregimos el factor de potencia, eliminamos armónicos y protegemos contra transitorios, garantizando un suministro eléctrico limpio y confiable para todo tipo de instalaciones.",
     icon: BarChart3,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartCalidaddeenergia600x600.png",
+    imagenSecundaria: "/soluciones/CalidaddeEnergía.png",
     beneficios: [
       {
         titulo: "Mayor Fiabilidad",
@@ -731,8 +731,8 @@ const soluciones: Record<string, Solucion> = {
     descripcionLarga:
       "Un Sistema de Gestión de Edificios (BMS, por sus siglas en inglés) es una plataforma de control centralizado que integra y automatiza los sistemas mecánicos y eléctricos de un edificio, incluyendo ventilación, iluminación, sistemas de energía, seguridad y protección contra incendios. Nuestras soluciones BMS permiten monitorear, controlar y optimizar el rendimiento de todos los sistemas del edificio desde una interfaz única, mejorando la eficiencia energética, reduciendo costos operativos y aumentando el confort de los ocupantes.",
     icon: Cpu,
-    imagenPrincipal: "/placeholder.svg?height=400&width=400",
-    imagenSecundaria: "/placeholder.svg?height=400&width=400",
+    imagenPrincipal: "/soluciones/SmartSistemaBMS600x600.png",
+    imagenSecundaria: "/soluciones/BMS.png",
     beneficios: [
       {
         titulo: "Control Centralizado",
